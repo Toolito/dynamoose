@@ -777,10 +777,10 @@ describe("Schema", () => {
 			expect(func).to.throw("Invalid Attribute: random");
 		});
 
-		it("Should not throw for invalid attribute", () => {
+		it("Should not throw for attribute with number in it (without . prefix)", () => {
 			const func = () => new Schema({"id": String, "ran2dom": String}).getAttributeTypeDetails("ran2dom");
-			expect(func).not.to.throw(Error.UnknownAttribute);
-			expect(func).not.to.throw("Invalid Attribute: ran2dom");
+			expect(func).to.not.throw(Error.UnknownAttribute);
+			expect(func).to.not.throw("Invalid Attribute: ran2dom");
 		});		
 
 		it("Should have correct custom type for date", () => {
